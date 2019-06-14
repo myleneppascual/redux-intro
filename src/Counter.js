@@ -5,15 +5,17 @@ class Counter extends React.Component {
   state = { count: 0 }
 
   increment = () => {
-    this.setState({
-      count: this.state.count + 1
-    });
+    // this.setState({
+    //   count: this.state.count + 1
+    // });
+    this.props.dispatch({ type: 'INCREMENT' });
   }
 
   decrement = () => {
-    this.setState({
-      count: this.state.count - 1
-    });
+    // this.setState({
+    //   count: this.state.count - 1
+    // });
+    this.props.dispatch({ type: 'DECREMENT' });
   }
 
   render() {
