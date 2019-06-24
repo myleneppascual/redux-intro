@@ -2,6 +2,7 @@
 sample application using redux
 
 #https://daveceddia.com/how-does-redux-work/
+#https://daveceddia.com/redux-tutorial/
 
 We wrote a mapStateToProps function that does what the name says: transforms the Redux state into an object containing props.
 We connected the Redux store to our Counter component with the connect function from react-redux, using the mapStateToProps function to configure how the connection works.
