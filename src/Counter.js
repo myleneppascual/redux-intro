@@ -9,18 +9,21 @@ class Counter extends React.Component {
     // this.setState({
     //   count: this.state.count + 1
     // });
-    this.props.dispatch(increment());
+    // this.props.dispatch(increment());
+    this.props.increment();
   }
 
   decrement = () => {
     // this.setState({
     //   count: this.state.count - 1
     // });
-    this.props.dispatch(decrement());
+    // this.props.dispatch(decrement());
+    this.props.decrement();
   }
 
   reset = () => {
-    this.props.dispatch(reset());
+    // this.props.dispatch(reset());
+    this.props.reset();
   }
   render() {
     return (
@@ -39,5 +42,11 @@ class Counter extends React.Component {
 const mapStateToProps = state => ({
     count: state.count
   });
+
+ const mapDispatchToProps = {
+   increment,
+   decrement,
+   reset
+ } 
 // export default Counter;
-export default connect(mapStateToProps)(Counter);
+export default connect(mapStateToProps, mapDispatchToProps)(Counter);
