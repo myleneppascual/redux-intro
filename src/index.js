@@ -1,36 +1,22 @@
 import React from 'react';
-import { render } from 'react-dom';
-import Counter from './Counter';
 import { Provider } from 'react-redux';
-import { createStore } from 'redux';
+import { render } from 'react-dom';
+import { createStore, applyMiddleware} from 'redux';
+import thunk from 'redux-thunk';
+import Counter from './Counter';
+import ProductList from './ProductList';
+import rootReducer from './rootReducer';
 
-const initialState = { count: 0 };
-const reducer = (state = initialState, action) => {
-  console.log(action)
-  switch(action.type) {
-    case 'INCREMENT':
-      return {
-        count: state.count + 1
-      };
-    case 'DECREMENT':
-      return {
-        count: state.count - 1
-      };
-    case 'RESET':
-      return {
-        count : 0
-      };
-    default:
-      return state;
-  }
-}
 
-const store = createStore(reducer);
+const store = createStore(
+  rootReducer,
+  applyMiddleware(thunk));
 
 const App = () => (
   <div>
     <Provider store={store} >
       <Counter />
+      <ProductList/>
     </Provider>
 
   </div>
